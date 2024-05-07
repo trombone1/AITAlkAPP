@@ -14,25 +14,18 @@ if 'tasks_df' not in st.session_state:
 #st.session_state.tasks_df
 # 任務名稱
 task_name = st.text_input('輸入任務名稱')
-
 # 負責人
 team_member = st.selectbox('選擇負責人', ['Alice', 'Bob', 'Charlie', 'Diana'])
-
 # 優先級
 priority = st.radio('選擇任務優先級', ['高', '中', '低'])
-
 # 預計完成日期
 due_date = st.date_input('選擇預計完成日期')
-
 # 任務提出日期
 issue_day = pd.Timestamp.today().date()
-
 # 執行狀態
 Exec_status = st.text_input('輸入執行狀態')
-
 # 完成狀態
 is_completed = st.checkbox('任務已完成')
-
 # 提交按鈕
 if st.button('提交任務'):     
     num_records = len(st.session_state.tasks_df)

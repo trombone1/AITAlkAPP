@@ -17,25 +17,18 @@ else:
 with st.sidebar:
     # 問題描述
     issue_description = st.text_area('輸入問題描述',value='描述問題')
-
     # 執行狀態
-    issue_Status = st.text_area('輸入目前執行狀態',value='執行狀態說明')
-    
+    issue_Status = st.text_area('輸入目前執行狀態',value='執行狀態說明')    
     # 負責人
     issue_owner = st.multiselect('選擇負責人', ['Alice', 'Bob', 'Charlie', 'Diana'], default=[])
-
     # 優先級
     issue_priority = st.select_slider('選擇問題優先級', options=['低', '中', '高'], value='低')
-
     # 截止日期
     due_date = st.date_input('選擇截止日期')
-    type(due_date)
     # 預計修復時間
     fix_time = st.slider('選擇預計修復時間 (小時)', 0, 48, 8)
-
     # 時間標記
     timestamp = st.time_input('選擇時間標記', pd.Timestamp.now().time())
-    type(timestamp)
     # 提交按鈕
     if st.button('提交問題'):
         num_records = len(st.session_state.issues_df)
